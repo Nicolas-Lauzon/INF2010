@@ -1,6 +1,7 @@
 package tp1;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public final class PointOperator {
     // TODO appliquer la translation sur le vecteur d'entree.
@@ -56,11 +57,23 @@ public final class PointOperator {
 
     // TODO retourne la coordonnee avec les plus grandes valeurs en X et en Y.
     public static Point2d getMaxCoord(Collection<Point2d> coords) {
-        return null;
+        Double coordXmax = 0.0;
+        Double coordYmax = 0.0;
+        if(!coords.isEmpty()) {
+            coordXmax = Collections.max(coords.stream().map(x -> x.X()).collect(Collectors.toList()));
+            coordYmax = Collections.max(coords.stream().map(y -> y.Y()).collect(Collectors.toList()));
+        }
+        return (new Point2d(coordXmax, coordYmax));
     }
 
     // TODO retourne la coordonnee avec les plus petites valeurs en X et en Y.
     public static Point2d getMinCoord(Collection<Point2d> coords) {
-        return null;
+        Double coordXmin = 0.0;
+        Double coordYmin = 0.0;
+        if(!coords.isEmpty()) {
+            coordXmin = Collections.min(coords.stream().map(x -> x.X()).collect(Collectors.toList()));
+            coordYmin = Collections.min(coords.stream().map(x -> x.Y()).collect(Collectors.toList()));
+        }
+        return (new Point2d(coordXmin, coordYmin));
     }
 }
