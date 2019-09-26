@@ -9,22 +9,39 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_H() {
-        return null;
+        /*BaseShape barreDroite = new Rectangle(stripeThickness, maxHeight);
+        BaseShape barreGauche = new Rectangle(stripeThickness, maxHeight);
+        BaseShape barreCentre = new Rectangle(halfMaxHeight, stripeThickness);
+        barreDroite.translate(new Point2d(halfMaxHeight,0.00));
+        barreCentre.translate(new Point2d(stripeThickness, halfMaxHeight));
+        barreGauche.add(barreCentre);
+        barreGauche.add(barreDroite);
+        return barreGauche;*/
+        BaseShape barreDroite = new Rectangle(stripeThickness,maxHeight);
+        BaseShape barreGauche = barreDroite.translate(new Point2d(halfMaxHeight,0.00));
+        BaseShape barreCentre = new Rectangle(halfMaxHeight,stripeThickness).translate(new Point2d(stripeThickness,halfMaxHeight));
+        barreGauche.add(barreDroite);
+        barreGauche.add(barreCentre);
+        return barreGauche;
     }
 
     // TODO
     public static BaseShape create_e() {
+
         return null;
     }
 
     // TODO
     public static BaseShape create_l() {
-        return null;
+        return (new Rectangle(stripeThickness,maxHeight));
     }
 
     // TODO
     public static BaseShape create_o() {
-        return null;
+        BaseShape cercleExt = new Ellipse(maxHeight,maxWidth);
+        BaseShape cercleInt = new Ellipse(maxHeight-(stripeThickness*2),maxWidth-(stripeThickness*2));
+        cercleExt.remove(cercleInt);
+        return cercleExt;
     }
 
     // On vous donne la lettre W comme exemple.

@@ -21,7 +21,7 @@ public class Main {
             letterPlacer.placeNext('r');
             letterPlacer.placeNext('l');
             letterPlacer.placeNext('d');
-            File imgFile = letterPlacer.saveImage("image", false);
+            File imgFile = letterPlacer.saveImage("image_test", false);
             Desktop dt = Desktop.getDesktop();
             dt.open(imgFile);
             System.out.println("Bravo!");

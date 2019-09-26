@@ -47,37 +47,41 @@ public class BaseShape {
 
     // TODO appliquer la translation sur la forme.
     public BaseShape translate(Point2d point) {
-       /* BaseShape temp = new BaseShape();
-        Iterator iterator = this.coords.iterator();
-        while (iterator.hasNext()){
-            Point2d x = (Point2d) iterator.next();
-            x.translate(point);
-            temp.add(x);
-        }*/
-       return (new BaseShape(translateAll(point)));
-
+        return (new BaseShape(this.translateAll(point)));
     }
 
     // TODO appliquer la translation sur la liste.
     public Set<Point2d> translateAll(Point2d point) {
         Set<Point2d> temp = new HashSet<Point2d>();
-        temp.addAll(this.coords);
-        temp.forEach((e) -> {e.translate(point);});
+        Iterator iterator = this.coords.iterator();
+        while (iterator.hasNext()){
+            Point2d x = (Point2d) iterator.next();
+            x=x.translate(point);
+            temp.add(x);
+        }
         return temp;
     }
 
     // TODO appliquer la rotation sur la forme.
     public BaseShape rotate(Double angle) {
-        return null;
+        return (new BaseShape(this.rotateAll(angle)));
     }
 
     // TODO appliquer la rotation sur la liste.
     public Set<Point2d> rotateAll(Double angle) {
-        return null;
+        Set<Point2d> temp = new HashSet<Point2d>();
+        Iterator iterator = this.coords.iterator();
+        while (iterator.hasNext()){
+            Point2d x = (Point2d) iterator.next();
+            x=x.rotate(angle);
+            temp.add(x);
+        }
+        return temp;
     }
 
     // TODO retourner une nouvelle forme.
     public BaseShape clone() {
-        return (new BaseShapethis);
+
+        return (new BaseShape(this.coords));
     }
 }
