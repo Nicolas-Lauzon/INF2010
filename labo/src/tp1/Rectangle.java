@@ -11,7 +11,7 @@ public class Rectangle extends BaseShape {
 
     // TODO creer un rectangle avec un point contenant la largeur et longueur.
     public Rectangle(Point2d dimensions) {
-        this.add(dimensions);
+        this.add(new Point2d(dimensions.vector));
     }
 
     private Rectangle(Set<Point2d> coords) {

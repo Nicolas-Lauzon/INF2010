@@ -9,26 +9,28 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_H() {
-        /*BaseShape barreDroite = new Rectangle(stripeThickness, maxHeight);
-        BaseShape barreGauche = new Rectangle(stripeThickness, maxHeight);
-        BaseShape barreCentre = new Rectangle(halfMaxHeight, stripeThickness);
-        barreDroite.translate(new Point2d(halfMaxHeight,0.00));
-        barreCentre.translate(new Point2d(stripeThickness, halfMaxHeight));
+        BaseShape grandeBarre = new Rectangle(stripeThickness, maxHeight);
+        BaseShape petiteBarre = new Rectangle(halfMaxHeight, stripeThickness);
+        BaseShape barreGauche = grandeBarre.translate(new Point2d(-halfMaxWidth,0.00));
+        BaseShape barreDroite = grandeBarre.translate(new Point2d(halfMaxWidth,0.00));
+        BaseShape barreCentre = petiteBarre.translate(new Point2d(0.0, halfMaxHeight));
         barreGauche.add(barreCentre);
         barreGauche.add(barreDroite);
-        return barreGauche;*/
-        BaseShape barreDroite = new Rectangle(stripeThickness,maxHeight);
-        BaseShape barreGauche = barreDroite.translate(new Point2d(halfMaxHeight,0.00));
-        BaseShape barreCentre = new Rectangle(halfMaxHeight,stripeThickness).translate(new Point2d(stripeThickness,halfMaxHeight));
-        barreGauche.add(barreDroite);
-        barreGauche.add(barreCentre);
         return barreGauche;
+
     }
 
     // TODO
     public static BaseShape create_e() {
+        BaseShape cercle = new Ellipse(halfMaxWidth, halfMaxHeight);
+        BaseShape cercleNoir = new Ellipse(halfMaxHeight - stripeThickness, halfMaxHeight - stripeThickness);
+        BaseShape barreCentre = new Rectangle(maxWidth, maxHeight);
+        BaseShape barreNoire = new Rectangle(stripeThickness, 20.0);
+        barreNoire.translate(new Point2d(halfMaxWidth + (stripeThickness/2), -(stripeThickness/2 + 20.0)));
+        cercle.remove(cercleNoir);
+        cercle.add(barreCentre);
 
-        return null;
+        return cercle;
     }
 
     // TODO
@@ -38,8 +40,8 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_o() {
-        BaseShape cercleExt = new Ellipse(maxHeight,maxWidth);
-        BaseShape cercleInt = new Ellipse(maxHeight-(stripeThickness*2),maxWidth-(stripeThickness*2));
+        BaseShape cercleExt = new Ellipse(halfMaxHeight,halfMaxWidth);
+        BaseShape cercleInt = new Ellipse(halfMaxHeight- stripeThickness,halfMaxWidth-stripeThickness);
         cercleExt.remove(cercleInt);
         return cercleExt;
     }
@@ -61,11 +63,25 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_r() {
-        return null;
+        BaseShape barreDroite = new Rectangle(stripeThickness, maxHeight);
+        BaseShape cercle = new Circle(halfMaxWidth);
+        BaseShape cercleNoir = new Circle(halfMaxWidth - stripeThickness);
+        cercle.remove(cercleNoir);
+        barreDroite.translate(new Point2d(-halfMaxWidth, 0.0));
+        cercle.translate(new Point2d(0.0, 50.0));
+        barreDroite.add(cercle);
+        return barreDroite;
     }
 
     // TODO
     public static BaseShape create_d() {
+        BaseShape cercle = new Circle(halfMaxWidth);
+        BaseShape barreDroite = new Rectangle(stripeThickness, maxHeight);
+        barreDroite.translate(new Point2d(halfMaxWidth, 0.0));
+        BaseShape cercleNoir = new Circle(halfMaxWidth - stripeThickness);
+        cercle.remove(cercleNoir);
+        cercle.translate(new Point2d(0.0, -50.0));
+        cercle.add(barreDroite);
         return null;
     }
 }

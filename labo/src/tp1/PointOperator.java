@@ -61,6 +61,7 @@ public final class PointOperator {
         Double coordYmax = 0.0;
         if(!coords.isEmpty()) {
             coordXmax = Collections.max(coords.stream().map(x -> x.X()).collect(Collectors.toList()));
+
             coordYmax = Collections.max(coords.stream().map(y -> y.Y()).collect(Collectors.toList()));
         }
         return (new Point2d(coordXmax, coordYmax));
