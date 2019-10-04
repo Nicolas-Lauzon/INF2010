@@ -1,5 +1,7 @@
 package tp2;
 
+import java.util.Iterator;
+
 public class LinkedHashMap<KeyType, DataType> {
 
     private static final double COMPRESSION_FACTOR = 2; // 50%
@@ -68,13 +70,12 @@ public class LinkedHashMap<KeyType, DataType> {
      * @return if key is already used in map
      */
     public boolean containsKey(KeyType key) {
-        Node<KeyType, DataType> []iterator = map;
-        for(int i = 0; i < iterator.length; i++) {
-            while (iterator[i].next != null)
-                if (iterator[i].key == key)
+        Node<KeyType, DataType> iterator = map[getIndex(key)];
+        while(iterator != null) {
+            if (iterator.key == key)
                     return true;
                 else
-                    iterator[i] = iterator[i].next;
+                    iterator = iterator.next;
         }
         return false;
     }
@@ -99,10 +100,11 @@ public class LinkedHashMap<KeyType, DataType> {
     public DataType put(KeyType key, DataType value) {
         int index = getIndex(key);
         Node<KeyType, DataType> iterator = map[index];
-        if(containsKey(key)) {
-
+        if (shouldRehash()){
+            rehash();
+        }
+        else if(containsKey(key)) {
             while (iterator != null) { //do while maybe
-
                 if (iterator.key.equals(key)) {
                     DataType ancien = iterator.data;
                     iterator.data = value;
@@ -111,11 +113,15 @@ public class LinkedHashMap<KeyType, DataType> {
                 iterator = iterator.next;
             }
         }
-
+        else{
+            iterator = new Node<KeyType, DataType>(key, value);
+            iterator.next = null;
+        }
+         return null;
         }
 
-    return null;
-    }
+
+
 
     /** TODO
      * Removes the node attached to a key
