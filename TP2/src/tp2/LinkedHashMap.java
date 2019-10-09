@@ -43,25 +43,13 @@ public class LinkedHashMap<KeyType, DataType> {
      */
     private void rehash() {
         Node<KeyType, DataType> [] oldMap = map;
-        Node<KeyType,DataType> iterator=null;
-        capacity*=CAPACITY_INCREASE_FACTOR;
+        capacity =capacity * CAPACITY_INCREASE_FACTOR;
         map = new Node[capacity];
-        int i=0;
-        boolean assignation_initiale = false;
-        while(i < oldMap.length){
-            //System.out.println(oldMap.length);
-            if (assignation_initiale == false){
-                iterator = oldMap[i];
-                assignation_initiale = true;
+        size=0;
+        for (int i = 0 ; i < oldMap.length ; i++){
+            for (Node<KeyType,DataType> e=oldMap[i] ; e!=null ; e=e.next){
+                put(e.key, e.data);
             }
-            if (iterator != null){
-               put(iterator.key, iterator.data);
-               iterator = iterator.next;
-           }
-           else if (iterator==null){
-               i++;
-               assignation_initiale = false;
-           }
         }
     }
 
@@ -99,9 +87,10 @@ public class LinkedHashMap<KeyType, DataType> {
      * @return DataType instance attached to key (null if not found)
      */
     public DataType get(KeyType key) {
+        int index = getIndex(key);
         if (containsKey(key)){
-            for (Node<KeyType,DataType> i = map[getIndex(key)] ; i!=null ; i=i.next){
-                if (i.key == key){
+            for (Node<KeyType,DataType> i = map[index] ; i!=null ; i=i.next){
+                if (i.key.equals(key)){
                     return i.data;
                 }
             }
@@ -115,6 +104,7 @@ public class LinkedHashMap<KeyType, DataType> {
      * @return Old DataType instance at key (null if none existed)
      */
     public DataType put(KeyType key, DataType value) {
+
         Node<KeyType, DataType> iterator = map[getIndex(key)];
         if(containsKey(key)) {
             while (iterator != null){ //do while maybe
@@ -144,8 +134,8 @@ public class LinkedHashMap<KeyType, DataType> {
                 }
                 derniere_node.next=new Node<>(key,value);
             }
-            /*size++;
-            map[getIndex(key)]= new Node<>(key,value);*/
+            //size++;
+            //map[getIndex(key)]= new Node<>(key,value);
 
         }
          return null;
@@ -160,21 +150,15 @@ public class LinkedHashMap<KeyType, DataType> {
      * @return Old DataType instance at key (null if none existed)
      */
     public DataType remove(KeyType key) {
-        Node<KeyType,DataType> iterator = map [getIndex(key)];
-        size =0;
         if (containsKey(key)){
-            DataType ancien = iterator.data;
-            map[getIndex(key)] = null;
-
-            return ancien;
-            /*while (iterator != null){
-                if (iterator.key == key){
-                    map[getIndex(key)].next = null;
+            for (Node<KeyType,DataType> i=map[getIndex(key)] ; i!=null ; i=i.next){
+                if (i.key.equals(key)){
+                    DataType ancien = i.data;
+                    i=i.next;
+                    size--;
+                    return ancien;
                 }
-                else{
-                    iterator = iterator.next;
-                }
-            }*/
+            }
         }
 
         return null;
@@ -184,12 +168,11 @@ public class LinkedHashMap<KeyType, DataType> {
      * Removes all nodes contained within the map
      */
     public void clear() {
-        /*DataType temp;
         for (int i=0 ; i < map.length;i++){
-            temp =remove(map[i].key);
-        }*/
+            map[i]=null;
+        }
 
-        map = new Node[map.length];
+        //map = new Node[map.length];
     }
 
 

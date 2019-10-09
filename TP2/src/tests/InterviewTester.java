@@ -62,6 +62,7 @@ public class InterviewTester {
         int n = 100;
         int value1 = 4;
         int value2 = 6;
+
         for (int i = 0; i < n; ++i) {
             values.add(value1);
             values.add(value2);
