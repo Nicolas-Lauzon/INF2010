@@ -2,24 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2904979c-018d-46b2-89d8-54d28b80bce1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2_2/tests/Corrector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2_2/tests/Corrector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2_2/tests/InterviewTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2_2/tests/InterviewTester.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2_2/tests/LinkedHashMapTester$KeyMock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2_2/tests/LinkedHashMapTester$KeyMock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2_2/tests/LinkedHashMapTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2_2/tests/LinkedHashMapTester.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2_2/tp2/Interview.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2_2/tp2/Interview.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP2_2/tp2/LinkedHashMap$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2_2/tp2/LinkedHashMap$Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP2_2/tp2/LinkedHashMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2_2/tp2/LinkedHashMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2_2/tp2/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2_2/tp2/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2_2/tp2/MatchingPair.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2_2/tp2/MatchingPair.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tp2/Interview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tp2/Interview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tp2/LinkedHashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tp2/LinkedHashMap.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="293" />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="testRunner" value="GRADLE" />
@@ -125,7 +120,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TP2$Main.ic" NAME="Main Coverage Results" MODIFIED="1570549672619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/TP2$Main.ic" NAME="Main Coverage Results" MODIFIED="1570743635829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tp2.*</FILTER>
     </SUITE>
   </component>

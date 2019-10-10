@@ -107,20 +107,20 @@ public class LinkedHashMap<KeyType, DataType> {
 
         Node<KeyType, DataType> iterator = map[getIndex(key)];
         if(containsKey(key)) {
-            while (iterator != null){ //do while maybe
+            while (iterator != null){
                 if (iterator.key.equals(key)) {
-                    DataType ancien = iterator.data;
+                    DataType oldData = iterator.data;
                     iterator.data = value;
-                    //map[getIndex(key)] = iterator;
+
 
                     size++;
-                    return ancien;
+                    return oldData;
                 }
                 iterator = iterator.next;
             }
         }
         else{
-            Node <KeyType,DataType> derniere_node = null;
+            Node <KeyType,DataType> lastNode = null;
             if(map[getIndex(key)] == null){
                 size++;
                 map[getIndex(key)]=new Node<>(key,value);
@@ -130,12 +130,11 @@ public class LinkedHashMap<KeyType, DataType> {
             }
             else{
                 for(Node<KeyType,DataType> i=map[getIndex(key)] ; i != null ; i=i.next){
-                    derniere_node=i;
+                    lastNode=i;
                 }
-                derniere_node.next=new Node<>(key,value);
+                lastNode.next=new Node<>(key,value);
             }
-            //size++;
-            //map[getIndex(key)]= new Node<>(key,value);
+
 
         }
          return null;
@@ -153,10 +152,10 @@ public class LinkedHashMap<KeyType, DataType> {
         if (containsKey(key)){
             for (Node<KeyType,DataType> i=map[getIndex(key)] ; i!=null ; i=i.next){
                 if (i.key.equals(key)){
-                    DataType ancien = i.data;
+                    DataType oldData = i.data;
                     i=i.next;
                     size--;
-                    return ancien;
+                    return oldData;
                 }
             }
         }
@@ -172,7 +171,7 @@ public class LinkedHashMap<KeyType, DataType> {
             map[i]=null;
         }
 
-        //map = new Node[map.length];
+
     }
 
 
