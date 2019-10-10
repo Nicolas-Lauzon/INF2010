@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2904979c-018d-46b2-89d8-54d28b80bce1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2_2/tp2/LinkedHashMap$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2_2/tp2/LinkedHashMap$Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP2_2/tp2/LinkedHashMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP2_2/tp2/LinkedHashMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tp2/LinkedHashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tp2/LinkedHashMap.java" afterDir="false" />
-    </list>
+    <list default="true" id="2904979c-018d-46b2-89d8-54d28b80bce1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
