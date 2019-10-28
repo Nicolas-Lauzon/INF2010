@@ -153,6 +153,9 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @param node1 Node to become child of its left child
      */
     private void rotateLeft(BinaryNode<ValueType> node1){
+        BinaryNode<ValueType> node2 = node1.right;
+        node1.right = node2.left;
+        node2.left = node1;
     }
 
     /** TODO O( 1 )
@@ -160,6 +163,11 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @param node1 Node to become child of its right child
      */
     private void rotateRight(BinaryNode<ValueType> node1){
+        BinaryNode<ValueType> node2 = node1.left;
+        node1.left = node2.right;
+        node2.right = node1;
+
+
     }
 
     /** TODO O( 1 )
@@ -167,6 +175,7 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @param node1 Node to become child of the right child of its left child
      */
     private void doubleRotateOnLeftChild(BinaryNode<ValueType> node1){
+        rotateRight(node1.left);
     }
 
     /** TODO O( 1 )
@@ -204,16 +213,28 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @return Number of level contained in subTree including subTree node level
      */
     private int getLevelCount(BinaryNode<ValueType> subTree){
-
-        return 0;
+        if(subTree == null){
+            return 0;
+        }
+        else{
+            return 1+Math.max(getLevelCount(subTree.left), getLevelCount(subTree.right));
+        }
     }
 
     /** TODO O( log n )
      * Returns the node which has the minimal value contained in our root tree
      * @return Node which has the minimal value contained in our root tree
      */
+    // cest 0(n) je crois
     private BinaryNode<ValueType> findMin(BinaryNode<ValueType> currentNode) {
-        return null;
+        BinaryNode<ValueType> minNode = currentNode;
+        if(currentNode == null)
+            return null;
+        while(currentNode.left != null){
+            currentNode = currentNode.left;
+        }
+        return currentNode;
+
     }
 
     /** TODO O( n )
@@ -222,6 +243,11 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @param items List being modified to contain all values in the root tree in ascending order
      */
     private void infixOrder(BinaryNode<ValueType> currentNode, List<ValueType> items){
+        if(currentNode != null){
+            infixOrder(currentNode.left, items);
+            items.add(currentNode.value);
+            infixOrder(currentNode.right, items);
+        }
     }
 
     /** TODO O( n )
@@ -230,7 +256,22 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @param items List being modified to contain all values in the root tree in level order from top to bottom
      */
     private void levelOrder(ArrayDeque<BinaryNode<ValueType>> nodesToCheck, List<ValueType> items) {
+        nodesToCheck.add(root);
+        BinaryNode<ValueType> tempNode;
+        while(!nodesToCheck.isEmpty())
+        {
+            tempNode=nodesToCheck.poll();
+            items.add(tempNode.value);
+            System.out.print(tempNode.value);
+            if(tempNode.left != null) {
+                nodesToCheck.add(tempNode.left);
+            }
+            if(tempNode.right != null) {
+                nodesToCheck.add(tempNode.right);
+            }
+        }
     }
+
     
     static class BinaryNode<ValueType> {
         ValueType value;
