@@ -13,10 +13,9 @@ public class Interview {
     public Collection<MatchingPair> matchingPairs(Collection<Integer> values, Integer targetSum){
         Map<Integer, Integer> pairs = new HashMap<>();
         Collection<MatchingPair> good = new LinkedList<>();
+        //fonction presque en commentaire
 
-        /* version qui fonction presque en commentaire*/
-
-        /*for (int i : values){
+        for (int i : values){
             if (pairs.containsKey(i)){
                 if(pairs.get(i)!=null){
                     MatchingPair x = new MatchingPair(targetSum-i, i);
@@ -27,10 +26,10 @@ public class Interview {
             else if (!pairs.containsValue(i)){
                 pairs.put(targetSum -i , i);
             }
-        }*/
+        }
 
         /*version expérimentale*/
-        int value1 = 4;
+      /*  int value1 = 4;
         int value2 = 6;
         int value3 = 6;
         int value4 = 4;
@@ -58,11 +57,11 @@ public class Interview {
 
                     }
                 }
-            }*/
-        }
+            }
+        }*/
 
 
-        System.out.println(good.size());
+        //System.out.println(good.size());
         return good;
     }
 }
