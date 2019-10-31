@@ -189,7 +189,6 @@ public class AvlTreeTester {
         tree.insert(2);
         tree.insert(1);
         tree.insert(0);
-
         boolean isBalanced = tree.getHeight() == 1;
 
         List<Integer> result = tree.infixOrder();
