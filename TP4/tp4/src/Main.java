@@ -11,46 +11,46 @@ public class Main
       // Creer un monceau avec 22 éléments et un tableau équivalent
       int numItems = 22;
       BinaryHeap<Integer> heap = new BinaryHeap<Integer>(true);
-      PriorityQueue<Integer> goodHeap = new PriorityQueue<>();
       
       Integer [ ] items = new Integer[ numItems ];
-      Integer [ ] goodItems = new Integer[ numItems ];
+
       int i;
       int j;
-
 
       // En insérant les éléments un a un
       for( i = 11, j = 0; j != numItems; i = ( i + 37 ), j++ )
       {
 	  heap.offer( i );
-	  goodHeap.offer(i);
 	  items[ j ] = i;
-	  goodItems[j] = i;
 
 	  i %=  numItems; 
       }
 
-
-
-
       // en construisant le monceau depuis le depart
       System.out.println("Monceau min contruit element par element:");
+      System.out.println( heap.printFancyTree() );
+
+      System.out.println("poll:");
+      heap.poll();
       System.out.println( heap.printFancyTree() );
 
       heap = new BinaryHeap<Integer>(false);
       // en inserant les elements un a un
       for( Integer item : items)
 	     heap.offer( item );
-      for( Integer goodItem : goodItems)
-         goodHeap.offer(goodItem);
 
       // en construisant le monceau depuis le depart
       System.out.println("Monceau max contruit element par element:");
       System.out.println( heap.printFancyTree() );
 
+
+
       heap = new BinaryHeap<Integer>(items,false);
       System.out.println("Monceau max contruit a partir d'un tableau:");
       System.out.println( heap.printFancyTree() );
+
+
+
 
       heap = new BinaryHeap<Integer>(items,true);
       System.out.println("Monceau min contruit a partir d'un tableau:");
@@ -66,11 +66,8 @@ public class Main
       System.out.println();
       System.out.println("Tableau d'origine:");
       System.out.println( printArray( items ) );
-      System.out.println("Bon Tableau d'origine:");
-      System.out.println( printArray( goodItems ) );
-
+      
       BinaryHeap.heapSort( items );
-
       System.out.println("Tableau ordonne:");
       System.out.println( printArray( items ) );
 
@@ -78,12 +75,11 @@ public class Main
       System.out.println("Tableau inversement ordonne:");
       System.out.println( printArray( items ) );
 
-      System.out.printheap.poll();
 
 
-
-
-
+      /*
+       * Ajouter appels pour repondre a la question
+       **/
    }
 
    private static <AnyType> String printArray(AnyType[] a)
