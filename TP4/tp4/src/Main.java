@@ -29,12 +29,32 @@ public class Main
 
 	  i %=  numItems; 
       }
+      heap = new BinaryHeap<Integer>(items,true);
 
+      for (int y = 0; y < items.length; y++){
+         System.out.print(items[y] + " ");
+      }
+      System.out.println();
+      for (int y = 0; y < goodItems.length; y++){
+         System.out.print(goodItems[y] + " ");
+      }
+      System.out.println();
+
+      heap.poll();
+      goodHeap.poll();
+
+      for (int y = 0; y < heap.toArray().length; y++){
+        System.out.print(heap.toArray()[y] + " ");
+      }
+      System.out.println();
+      for (int y = 0; y < goodHeap.toArray().length; y++){
+         System.out.print(goodHeap.toArray()[y]+ " ");
+      }
 
 
 
       // en construisant le monceau depuis le depart
-      System.out.println("Monceau min contruit element par element:");
+      /*System.out.println("Monceau min contruit element par element:");
       System.out.println( heap.printFancyTree() );
 
       heap = new BinaryHeap<Integer>(false);
@@ -78,7 +98,10 @@ public class Main
       System.out.println("Tableau inversement ordonne:");
       System.out.println( printArray( items ) );
 
-      System.out.printheap.poll();
+
+*/
+
+
 
 
 

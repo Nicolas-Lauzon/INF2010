@@ -36,7 +36,7 @@ public class BinaryHeap<AnyType extends Comparable<? super AnyType>> extends Abs
 	    if( currentSize + 1 == array.length )
 	        doubleArray();
 	
-        int hole = ++currentSize;
+        int hole = ++ currentSize;
         for(; hole > 1 && x.compareTo(array[hole / 2]) < 0; hole /= 2)
             array[hole] = array[hole/2];
         array[hole] = x;
